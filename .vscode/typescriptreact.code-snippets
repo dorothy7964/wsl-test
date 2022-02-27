@@ -1,0 +1,97 @@
+{
+  "cc": {
+    "prefix": "cc",
+    "body": [
+      "console.log(\"%c%s\", 'background: #222; color: yellow; padding: 5px;', ${0:$CLIPBOARD});"
+    ],
+    "description": "color log"
+  },
+  "cf": {
+    "prefix": "cf",
+    "body": [
+      "console.log('💾 %c${TM_FILENAME}:${TM_LINE_NUMBER}', 'background: #222; color: yellow; padding: 5px;', ${0:$CLIPBOARD});"
+    ],
+    "description": "cf"
+  },
+  "ce": {
+    "prefix": "ce",
+    "body": [
+      "CONSOLE_ERROR('📢 [${TM_FILENAME}:${TM_LINE_NUMBER}]', ${0:$CLIPBOARD});"
+    ],
+    "description": "console error log"
+  },
+  "emotion": {
+    "prefix": "emotion",
+    "body": [
+      "/** @jsx jsx */",
+      "import { css, jsx } from '@emotion/react';"
+    ]
+  },
+  "tsrfc": {
+    "prefix": "tsrfc",
+    "body": [
+      "import React from 'react';",
+      "\r",
+      "const ${TM_FILENAME_BASE} = (): React.ReactElement | null => {\r",
+      "  ${1}\r",
+      "  return <></>;\r",
+      "};\r",
+      "\r",
+      "export default ${TM_FILENAME_BASE};\r",
+      ""
+    ],
+    "description": "React Function component"
+  },
+  "tsrfcp": {
+    "prefix": "tsrfcp",
+    "body": [
+      "import React from 'react';",
+      "\r",
+      "type ${TM_FILENAME_BASE}Props = {\r",
+      "  ${1}\r",
+      "};\r",
+      "\r",
+      "const ${TM_FILENAME_BASE} = ({  }: ${TM_FILENAME_BASE}Props): React.ReactElement | null => {\r",
+      "  \r",
+      "  return <></>;\r",
+      "};\r",
+      "\r",
+      "${TM_FILENAME_BASE}.defaultProps = {} as ${TM_FILENAME_BASE}Props;\r",
+      "\r",
+      "export default ${TM_FILENAME_BASE};\r",
+      ""
+    ],
+    "description": "React Function component with props"
+  },
+  "tsrfcpc": {
+    "prefix": "tsrfcpc",
+    "body": [
+      "import React, { useState, useEffect } from 'react';",
+      "\r",
+      "type ${TM_FILENAME_BASE}Props = {\r",
+      "  children: JSX.Element;\r",
+      "};\r",
+      "\r",
+      "const ${TM_FILENAME_BASE} = ({ children }: ${TM_FILENAME_BASE}Props): React.ReactElement | null => {\r",
+      "  ${1}\r",
+      "  return <div>{children}</div>;\r",
+      "};\r",
+      "\r",
+      "${TM_FILENAME_BASE}.defaultProps = {} as ${TM_FILENAME_BASE}Props;\r",
+      "\r",
+      "export default ${TM_FILENAME_BASE};\r",
+      ""
+    ],
+    "description": "React Function component with children props"
+  },
+  "RectComment": {
+    "prefix": "rc",
+    "scope": "typescriptreact",
+    "body": [
+      "{/*--------------------------------------------------------------------------------*/}\r",
+      "{/* ${1}                                                      */}\r",
+      "{/*--------------------------------------------------------------------------------*/}"
+    ],
+    "description": ""
+  },
+}

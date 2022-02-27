@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    /* 기본 옵션 */
+    "target": "es5",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true, 
+    "jsx": "react-jsx",
+    "sourceMap": true, 
+    "noEmit": true,
+    "isolatedModules": true,
+
+    /* 엄격한 타입-확인 옵션 */
+    "strict": true,
+
+    /* 추가적인 확인 */
+    "noFallthroughCasesInSwitch": true,
+
+    /* 모듈 해석 옵션 */
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "typeRoots": [ 
+      "node_modules/@types",
+      "@types"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    /* 실험적 옵션 */
+    "experimentalDecorators": true,
+
+    /* 추가적 옵션 */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
