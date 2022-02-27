@@ -41,6 +41,12 @@ const SectionContainer = styled.div<{ isMobile: boolean }>`
   flex-wrap: wrap;
   justify-content: center;
 
+  .rightSction {
+    a {
+      margin: 48px auto 0;
+    }
+  }
+
   /* 예외 사이즈 */
   @media screen and (min-width: 1023px) and (max-width: 1346px) {
     .leftSection {
