@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react';
 import ParticipationCountries from '@/components/participationCountries/ParticipationCountries';
 import BgStyle from '@/styles/wrapper/bgStyle';
 import React from 'react';
@@ -17,7 +15,7 @@ const WSLParticipationCountries = (): React.ReactElement | null => {
         <h2>WSL 2022</h2>
         <h2>PARTICIPATING COUNTRIES</h2>
       </div>
-      <ParticipationBox>
+      <ParticipationBox isMobile={isMobile}>
         <ParticipationCountries />
       </ParticipationBox>
     </Wrapper>
@@ -28,8 +26,8 @@ const Wrapper = styled.div<{ mobileWidth: string }>`
   width: ${({ mobileWidth }) => mobileWidth};
 `;
 
-const ParticipationBox = styled.div`
-  margin-top: 3em;
+const ParticipationBox = styled.div<{ isMobile: boolean }>`
+  margin-top: ${({ isMobile }) => (isMobile ? '1.5em' : '3em')};
   width: '100%';
 `;
 
