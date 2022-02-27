@@ -44,7 +44,7 @@ const GameLogoItem = styled.div<{ isMobile: boolean }>`
   justify-content: center;
   align-items: center;
 
-  padding: ${({ isMobile }) => (isMobile ? '0.6em' : '1.5em 1em')};
+  padding: ${({ isMobile }) => (isMobile ? '0em' : '1.5em 1em')};
 
   background-color: black;
   border: solid 1px #707070;
