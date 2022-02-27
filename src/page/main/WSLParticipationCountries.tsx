@@ -11,10 +11,10 @@ const WSLParticipationCountries = (): React.ReactElement | null => {
   return (
     <Wrapper mobileWidth={mobileWidth}>
       <BgStyle bgUrl="bg_world_map" position="bottom center" />
-      <div>
+      <TitleBox isMobile={isMobile}>
         <h2>WSL 2022</h2>
         <h2>PARTICIPATING COUNTRIES</h2>
-      </div>
+      </TitleBox>
       <ParticipationBox isMobile={isMobile}>
         <ParticipationCountries />
       </ParticipationBox>
@@ -24,6 +24,12 @@ const WSLParticipationCountries = (): React.ReactElement | null => {
 
 const Wrapper = styled.div<{ mobileWidth: string }>`
   width: ${({ mobileWidth }) => mobileWidth};
+`;
+
+const TitleBox = styled.div<{ isMobile: boolean }>`
+  h2 {
+    font-size: ${({ isMobile }) => (isMobile ? '4rem' : 'inherit')};
+  }
 `;
 
 const ParticipationBox = styled.div<{ isMobile: boolean }>`

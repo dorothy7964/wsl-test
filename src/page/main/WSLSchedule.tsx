@@ -48,8 +48,8 @@ const ScheduleBox = styled.div<{ isMobile: boolean; isTablet: boolean; isPc: boo
   width: ${({ isTablet }) => isTablet && '100%'};
   width: ${({ isPc }) => isPc && '73%'};
 
-  margin-top: ${({ isMobile }) => (isMobile ? '20px' : '122px')};
-  margin-bottom: ${({ isMobile }) => (isMobile ? '30px' : '109px')};
+  margin-top: ${({ isMobile }) => (isMobile ? '15px' : '122px')};
+  margin-bottom: ${({ isMobile }) => (isMobile ? '15px' : '109px')};
 
   display: flex;
   flex-wrap: wrap;

@@ -14,7 +14,7 @@ const Playpot = (): React.ReactElement | null => {
       <SectionContainer isMobile={isMobile}>
         <LeftSection className="leftSection" isMobile={isMobile} isTablet={isTablet} isPc={isPc}>
           <img
-            width={isMobile ? '80%' : '100%'}
+            width={isMobile ? '80%' : '90%'}
             className="playpot_logo"
             src="img/contents/playpot_img.png"
             alt="playpot"
@@ -40,12 +40,6 @@ const SectionContainer = styled.div<{ isMobile: boolean }>`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
-  .rightSction {
-    a {
-      margin: 48px auto 0;
-    }
-  }
 
   /* 예외 사이즈 */
   @media screen and (min-width: 1023px) and (max-width: 1346px) {
@@ -94,11 +88,11 @@ const RightSection = styled.div<{ isMobile: boolean; isPc: boolean }>`
   flex-direction: column;
 
   h2 {
-    margin-bottom: 34px;
+    margin-bottom: ${({ isMobile }) => (isMobile ? '16px' : '34px')};
   }
 
   a {
-    margin: 68px ${({ isPc }) => (isPc ? 0 : 'auto')} 0;
+    margin: ${({ isMobile }) => (isMobile ? '38px' : '68px')} ${({ isPc }) => (isPc ? 0 : 'auto')} 0;
   }
 `;
 

@@ -23,7 +23,7 @@ const MobileParticipationCountries = (): React.ReactElement | null => {
               <span>{value.continentCountries.length}</span>
             </TitleBox>
             <ArrowBox isShow={isShowMenu === name} onClick={() => setShowMenu(name)}>
-              <Arrow color="#fff" size="md" direction={isShowMenu === name ? 'bottom' : 'top'} />
+              <Arrow color="#fff" size="sm" direction={isShowMenu === name ? 'bottom' : 'top'} />
             </ArrowBox>
           </MenuWrapper>
           <ContinentBox bgcolor={value.continentColor} isShow={isShowMenu === name}>
@@ -56,7 +56,7 @@ const CountryBox = styled.div`
 const MenuWrapper = styled.button<{ bgcolor: string }>`
   color: #fff;
   width: 100%;
-  padding: 1em 1.5em;
+  padding: 2em 3rem;
   font-size: 1rem;
   background-color: ${({ bgcolor }) => bgcolor};
   display: flex;
