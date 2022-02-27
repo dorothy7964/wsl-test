@@ -50,7 +50,7 @@ const MobileScheduleContents = ({
 
 const wrapper = css`
   width: 100%;
-  margin: 2.5em;
+  margin: 2em 2.5em;
 `;
 
 const scheduleWrapper = css`
