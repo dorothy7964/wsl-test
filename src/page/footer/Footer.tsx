@@ -12,7 +12,7 @@ const Footer = (): React.ReactElement | null => {
   const target: string = '_blank';
 
   return (
-    <div css={wrapper}>
+    <Wrapper isMobile={isMobile}>
       <Section isMobile={isMobile} isTablet={isTablet} isPc={isPc}>
         <LeftSectoin isMobile={isMobile}>
           <SNSBox>
@@ -64,15 +64,15 @@ const Footer = (): React.ReactElement | null => {
           <ImgWslLogoV />
         </RightSection>
       </Section>
-    </div>
+    </Wrapper>
   );
 };
 
-const wrapper = css`
+const Wrapper = styled.div<{ isMobile: boolean }>`
   background-color: #131925;
   color: #868e9f;
-  padding: 0 2em;
-  width: 100%;
+  padding: ${({ isMobile }) => (isMobile ? 'calc(100vw - 1.5em)' : '0 2em')};
+  width: 100vw;
   height: 100vh;
 `;
 

@@ -6,6 +6,7 @@ import IconMouseScroll from '@/styles/icon/iconMouseScroll';
 import BgStyle from '@/styles/wrapper/bgStyle';
 import styled from '@emotion/styled';
 import React from 'react';
+
 // @ts-ignore
 import Flip from 'react-reveal/Flip';
 import { mobileWidth } from '@/views/main/ScrollContents';
@@ -15,13 +16,15 @@ const Main = (): React.ReactElement | null => {
 
   return (
     <Wrapper mobileWidth={mobileWidth}>
-      <BgStyle bgUrl="bg_line" />
+      <BgStyle bgUrl={`bg_line_${isMobile ? 'mobile' : 'pc'}`} />
+
       <Flip bottom>
-        <MainTitle top={isMobile ? '36%' : '38%'}>
-          <img width={isMobile ? '100%' : '61%'} src="img/logo/main_logo.png" alt="main logo" />
+        <MainWrapper isMobile={isMobile}>
+          <img src="img/logo/main_logo.png" alt="main logo" />
           <h1>THE ESPORTS YOU MAKING</h1>
-        </MainTitle>
+        </MainWrapper>
       </Flip>
+
       <IconMouseScroll />
       <IconButtomMoveTriangle />
       <IconButtomMoveTriangle />
@@ -33,14 +36,21 @@ const Wrapper = styled.div<{ mobileWidth: string }>`
   width: ${({ mobileWidth }) => mobileWidth};
 `;
 
-const MainTitle = styled.div<{ top: string }>`
+const background = css``;
+
+const MainWrapper = styled.div<{ isMobile: boolean }>`
   position: relative;
-  display: flex;
-  justify-content: center;
+
+  img {
+    width: ${({ isMobile }) => (isMobile ? '100%' : '61%')};
+  }
 
   h1 {
+    width: 100%;
     position: absolute;
-    top: ${({ top }) => top};
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 

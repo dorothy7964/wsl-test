@@ -21,6 +21,7 @@ const BgStyle = styled.div<BgStyleProps>`
   background: url('img/bg/${({ bgUrl }) => bgUrl}.png');
   background-repeat: no-repeat;
   background-position: ${({ position }) => position};
+  background-size: cover;
   mix-blend-mode: screen;
 `;
 
