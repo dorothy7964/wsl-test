@@ -15,6 +15,7 @@ const GameTitles = (): React.ReactElement | null => {
   return (
     <div css={[wrapper, gameTitleWrapper]}>
       <BgStyle bgUrl="bg_triangle" />
+
       <h2>WSL 2022 GAME TITLES</h2>
       <GameLogoBox contentsWidth={contentsWidth} isMobile={isMobile}>
         {_.map(gameLogo, (game: IGameLogo, label: string) => (
@@ -43,15 +44,14 @@ const GameLogoItem = styled.div<{ isMobile: boolean }>`
   justify-content: center;
   align-items: center;
 
-  width: ${({ isMobile }) => (isMobile ? '210px' : '270px')};
-  height: ${({ isMobile }) => (isMobile ? '140px' : '180px')};
+  padding: ${({ isMobile }) => (isMobile ? '0.6em' : '1.5em 1em')};
 
   background-color: black;
   border: solid 1px #707070;
   box-shadow: 7px 7px 2px 0px #707070;
 
   img {
-    width: ${({ isMobile }) => (isMobile ? '90%' : '100%')};
+    width: ${({ isMobile }) => (isMobile ? '70%' : '90%')};
   }
 `;
 

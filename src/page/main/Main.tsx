@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import useMedia from '@/hook/mediaQuery/useMediaQuery';
 import IconButtomMoveTriangle from '@/styles/icon/iconButtomMoveTriangle ';
 import IconMouseScroll from '@/styles/icon/iconMouseScroll';
@@ -35,8 +35,6 @@ const Main = (): React.ReactElement | null => {
 const Wrapper = styled.div<{ mobileWidth: string }>`
   width: ${({ mobileWidth }) => mobileWidth};
 `;
-
-const background = css``;
 
 const MainWrapper = styled.div<{ isMobile: boolean }>`
   position: relative;
