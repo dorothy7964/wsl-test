@@ -56,7 +56,7 @@ const CountryBox = styled.div`
 const MenuWrapper = styled.button<{ bgcolor: string }>`
   color: #fff;
   width: 100%;
-  padding: 2em 3rem;
+  padding: 1.5em 3rem;
   font-size: 1rem;
   background-color: ${({ bgcolor }) => bgcolor};
   display: flex;

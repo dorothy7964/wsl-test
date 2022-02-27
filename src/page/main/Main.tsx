@@ -26,8 +26,8 @@ const Main = (): React.ReactElement | null => {
       </Flip>
 
       <IconMouseScroll />
-      <IconButtomMoveTriangle />
-      <IconButtomMoveTriangle />
+      <IconButtomMoveTriangle left={isMobile ? '49.25%' : ' 49.8%'} />
+      <IconButtomMoveTriangle left={isMobile ? '49.25%' : ' 49.8%'} />
     </Wrapper>
   );
 };

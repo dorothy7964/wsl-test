@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 
-const IconButtomMoveTriangle = styled.span`
+const IconButtomMoveTriangle = styled.span<{ left: string }>`
   position: absolute;
   bottom: 8.1%;
-  left: 49.8%;
+  /* left: 49.8%; */
+  left: ${({ left }) => left};
   width: 0px;
   height: 0px;
   border-top: 8px solid ${({ theme }) => theme.mainColor};
