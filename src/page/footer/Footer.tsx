@@ -71,7 +71,7 @@ const Footer = (): React.ReactElement | null => {
 const Wrapper = styled.div<{ isMobile: boolean }>`
   background-color: #131925;
   color: #868e9f;
-  padding: ${({ isMobile }) => (isMobile ? 'calc(100vw - 1.5em)' : '0 2em')};
+  padding: 0 2em;
   width: 100vw;
   height: 100vh;
 `;
