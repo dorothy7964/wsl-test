@@ -28,13 +28,12 @@ const Wrapper = styled.div<{ mobileWidth: string }>`
 
 const TitleBox = styled.div<{ isMobile: boolean }>`
   h2 {
-    font-size: ${({ isMobile }) => (isMobile ? '4rem' : 'inherit')};
+    font-size: ${({ isMobile }) => isMobile && '4rem'};
   }
 `;
 
 const ParticipationBox = styled.div<{ isMobile: boolean }>`
-  margin-top: ${({ isMobile }) => (isMobile ? '1.5em' : '3em')};
-  width: '100%';
+  margin-top: ${({ isMobile }) => (isMobile ? '1em' : '3em')};
 `;
 
 export default WSLParticipationCountries;
