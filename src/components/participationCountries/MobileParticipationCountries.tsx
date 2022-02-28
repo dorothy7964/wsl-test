@@ -1,4 +1,5 @@
 import { participatingCountries } from '@/common/participatingCountries';
+import Arrow from '@/components/arrow/Arrow';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -6,7 +7,6 @@ import _ from 'lodash';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Flag from 'react-world-flags';
-import Arrow from '@/components/arrow/Arrow';
 
 type MobileParticipationCountriesProps = {
   title: string;
@@ -82,6 +82,7 @@ const CountryBox = styled.div`
 
 const titleBox = css`
   margin-bottom: 1em;
+
   h2 {
     font-size: 4rem;
   }

@@ -58,5 +58,8 @@
   "playpot_01" : "PLAYPOT supports global online tournaments as an online tournament platform.",
   "playpot_02" : "PLAYPOT tournament bracket creation, abusing player prevention, personal record management, etc.",
   "playpot_03" : "WSL uses PLAYPOT to hold the competition.",
-  "monetary_unit": "$"
+  "monetary_unit": "$",
+  "change_lang": "Language Changed"
+
+
 }

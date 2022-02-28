@@ -1,10 +1,13 @@
 import headerToggleMenu from '@/recoil/headerToggleMenu';
+import { keyframes } from '@emotion/css';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
+import { t } from 'i18next';
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Flag from 'react-world-flags';
 import { useRecoilState } from 'recoil';
 import headerMenu from '../headerMenu';
 
@@ -13,12 +16,43 @@ type MobileFullMenuProps = {
 };
 
 const MobileFullMenu = ({ onScrollPage }: MobileFullMenuProps): React.ReactElement | null => {
-  const { i18n } = useTranslation();
+  const flagSize = 27;
+  const { t, i18n } = useTranslation();
   const [isShowCheck, setIsShowCheck] = useRecoilState(headerToggleMenu);
-  const [currentLanguage, setCurrentLanguage] = useState('ko');
+  const [currentLanguage, setCurrentLanguage] = useState<string>('ko');
+  const [isShowAlert, setShowAlert] = useState<boolean>(false);
+
+  const lagnAlert = (show: boolean) => {
+    const bounce = keyframes({
+      'from, to': {
+        opacity: 0,
+      },
+      '25%, 75%': {
+        opacity: 0.5,
+      },
+      '50%': {
+        opacity: 1,
+      },
+    });
+
+    if (show) {
+      setTimeout(() => setShowAlert(false), 1000);
+      return css`
+        opacity: 0;
+        animation: ${bounce} 1s linear;
+      `;
+    }
+
+    if (!show) {
+      return css`
+        opacity: 0;
+      `;
+    }
+  };
 
   const onSelectLang = (code: string) => {
     i18n.changeLanguage(code);
+    setShowAlert(true);
   };
 
   useEffect(() => {
@@ -35,13 +69,21 @@ const MobileFullMenu = ({ onScrollPage }: MobileFullMenuProps): React.ReactEleme
 
   return (
     <Wrapper isShowCheck={isShowCheck} opacity="0.95">
-      <LangBox>
+      <div css={[lagnAlert(isShowAlert), changeLeng]}>{t('change_lang')}</div>
+
+      <div css={langWrapper}>
         {currentLanguage === 'ko' ? (
-          <h3 onClick={() => onSelectLang('en')}>ENG</h3>
+          <LangBox onClick={() => onSelectLang('en')}>
+            <Flag code="gb" width={flagSize} height={flagSize} />
+            <span>ENG</span>
+          </LangBox>
         ) : (
-          <h3 onClick={() => onSelectLang('ko')}>KOR</h3>
+          <LangBox onClick={() => onSelectLang('ko')}>
+            <Flag code="kr" width={flagSize} height={flagSize} />
+            <span>KOR</span>
+          </LangBox>
         )}
-      </LangBox>
+      </div>
       <MenuBox>
         {_.map(headerMenu, (header: IHeaderMenu) => (
           <div
@@ -87,7 +129,14 @@ const Wrapper = styled.div<{ isShowCheck: boolean; opacity: string }>`
   }
 `;
 
-const LangBox = styled.div`
+const changeLeng = css`
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+`;
+
+const langWrapper = css`
   cursor: pointer;
   position: absolute;
   top: 0px;
@@ -96,14 +145,18 @@ const LangBox = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100px;
+`;
 
-  h3 {
-    font-weight: 500;
-    color: #aaa;
+const LangBox = styled.div`
+  display: flex;
+  align-items: center;
 
-    :hover {
-      color: #fff;
-    }
+  img {
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 21px;
   }
 `;
 

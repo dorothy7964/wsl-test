@@ -1,8 +1,8 @@
 import ParticipationCountries from '@/components/participationCountries/ParticipationCountries';
 import BgStyle from '@/styles/wrapper/bgStyle';
-import React from 'react';
-import styled from '@emotion/styled';
 import { mobileWidth } from '@/views/main/ScrollContents';
+import styled from '@emotion/styled';
+import React from 'react';
 
 const WSLParticipationCountries = (): React.ReactElement | null => {
   return (
