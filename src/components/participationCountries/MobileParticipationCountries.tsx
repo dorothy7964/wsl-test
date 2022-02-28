@@ -22,6 +22,8 @@ const MobileParticipationCountries = (): React.ReactElement | null => {
 
   return (
     <CountryBox>
+      <h2>WSL 2022</h2>
+      <h2>PARTICIPATING COUNTRIES</h2>
       {_.map(participatingCountries, (value: IParticipatingCountries, name: string) => (
         <div key={name} onClick={() => toggleShowMenu(name)}>
           <MenuWrapper bgcolor={value.continentColor}>
@@ -58,6 +60,12 @@ const MobileParticipationCountries = (): React.ReactElement | null => {
 const CountryBox = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const MenuWrapper = styled.button<{ bgcolor: string }>`

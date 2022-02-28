@@ -11,10 +11,10 @@ const WSLParticipationCountries = (): React.ReactElement | null => {
   return (
     <Wrapper mobileWidth={mobileWidth}>
       <BgStyle bgUrl="bg_world_map" position="bottom center" />
-      <TitleBox isMobile={isMobile}>
+      {/* <TitleBox isMobile={isMobile}>
         <h2>WSL 2022</h2>
         <h2>PARTICIPATING COUNTRIES</h2>
-      </TitleBox>
+      </TitleBox> */}
       <ParticipationBox isMobile={isMobile}>
         <ParticipationCountries />
       </ParticipationBox>
