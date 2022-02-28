@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 
 const IconMouseScroll = styled.span`
   position: absolute;
-  bottom: 10%;
-  left: 50%;
+  bottom: 85px;
+  left: calc(50% + 4px);
+  transform: translate(-50%, 0);
   width: 30px;
   height: 50px;
-  margin-left: -15px;
+  /* margin-left: -15px; */
   border: 4px solid ${({ theme }) => theme.mainColor};
   border-radius: 80px;
   box-sizing: border-box;

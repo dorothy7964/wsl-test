@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
+import { css, jsx } from '@emotion/react';
 import useMedia from '@/hook/mediaQuery/useMediaQuery';
 import IconButtomMoveTriangle from '@/styles/icon/iconButtomMoveTriangle ';
 import IconMouseScroll from '@/styles/icon/iconMouseScroll';
@@ -16,18 +16,21 @@ const Main = (): React.ReactElement | null => {
 
   return (
     <Wrapper mobileWidth={mobileWidth}>
-      <BgStyle bgUrl={`bg_line_${isMobile ? 'mobile' : 'pc'}`} />
+      <div css={wrapper}>
+        <BgStyle bgUrl={`bg_line_${isMobile ? 'mobile' : 'pc'}`} />
 
-      <Flip bottom>
-        <MainWrapper isMobile={isMobile}>
-          <img src="img/logo/main_logo.png" alt="main logo" />
-          <h1>THE ESPORTS YOU MAKING</h1>
-        </MainWrapper>
-      </Flip>
-
-      <IconMouseScroll />
-      <IconButtomMoveTriangle left={isMobile ? '49.25%' : ' 49.8%'} />
-      <IconButtomMoveTriangle left={isMobile ? '49.25%' : ' 49.8%'} />
+        <Flip bottom>
+          <MainWrapper isMobile={isMobile}>
+            <img src="img/logo/main_logo.png" alt="main logo" />
+            <h1>THE ESPORTS YOU MAKING-1</h1>
+          </MainWrapper>
+        </Flip>
+        <div css={mouseIconWrapper}>
+          <IconMouseScroll />
+          <IconButtomMoveTriangle />
+          <IconButtomMoveTriangle />
+        </div>
+      </div>
     </Wrapper>
   );
 };
@@ -50,6 +53,20 @@ const MainWrapper = styled.div<{ isMobile: boolean }>`
     left: 50%;
     transform: translate(-50%, -50%);
   }
+`;
+
+const wrapper = css`
+  width: 100%;
+  height: 100%;
+`;
+
+const mouseIconWrapper = css`
+  position: absolute;
+  background-color: orange;
+  height: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 `;
 
 export default Main;
