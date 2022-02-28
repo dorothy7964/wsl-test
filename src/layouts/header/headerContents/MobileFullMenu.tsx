@@ -3,7 +3,6 @@ import { keyframes } from '@emotion/css';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import { t } from 'i18next';
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +15,7 @@ type MobileFullMenuProps = {
 };
 
 const MobileFullMenu = ({ onScrollPage }: MobileFullMenuProps): React.ReactElement | null => {
-  const flagSize = 27;
+  const flagSize = 31;
   const { t, i18n } = useTranslation();
   const [isShowCheck, setIsShowCheck] = useRecoilState(headerToggleMenu);
   const [currentLanguage, setCurrentLanguage] = useState<string>('ko');
@@ -28,7 +27,7 @@ const MobileFullMenu = ({ onScrollPage }: MobileFullMenuProps): React.ReactEleme
         opacity: 0,
       },
       '25%, 75%': {
-        opacity: 0.5,
+        opacity: 0.8,
       },
       '50%': {
         opacity: 1,
@@ -36,10 +35,10 @@ const MobileFullMenu = ({ onScrollPage }: MobileFullMenuProps): React.ReactEleme
     });
 
     if (show) {
-      setTimeout(() => setShowAlert(false), 1000);
+      setTimeout(() => setShowAlert(false), 1500);
       return css`
         opacity: 0;
-        animation: ${bounce} 1s linear;
+        animation: ${bounce} 1.5s linear;
       `;
     }
 
@@ -156,7 +155,7 @@ const LangBox = styled.div`
   }
 
   span {
-    font-size: 21px;
+    font-size: 24px;
   }
 `;
 
