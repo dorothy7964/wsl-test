@@ -23,16 +23,15 @@ const Main = (): React.ReactElement | null => {
         <Flip bottom>
           <MainWrapper isMobile={isMobile}>
             <img src="img/logo/main_logo.png" alt="main logo" />
-            <h1>THE ESPORTS YOU MAKIN4</h1>
-            {/* <h1>THE ESPORTS YOU MAKING</h1> */}
+            <h1>THE ESPORTS YOU MAKIN6</h1>
           </MainWrapper>
         </Flip>
         <div css={mouseIconWrapper}>
-          <IconMouseScroll />
-          <span>
-            <IconButtomMoveTriangle />
-            <IconButtomMoveTriangle />
-          </span>
+          <div css={mouseIconBox}>
+            <IconMouseScroll />
+            <IconButtomMoveTriangle bottom="40px" />
+            <IconButtomMoveTriangle bottom="25px" />
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -67,10 +66,21 @@ const wrapper = css`
 const mouseIconWrapper = css`
   position: absolute;
   background-color: orange;
-  height: 100%;
+
+  width: 100%;
+  height: 150px;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
+`;
+
+const mouseIconBox = css`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Main;

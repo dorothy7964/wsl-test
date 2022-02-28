@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 
-const IconButtomMoveTriangle = styled.span`
+const IconButtomMoveTriangle = styled.span<{ bottom: string }>`
   position: absolute;
-  bottom: 0;
+  bottom: ${({ bottom }) => bottom};
   left: 50%;
-  transform: translate(-50%, 0);
-  width: 0px;
-  height: 0px;
+  transform: translate(-50%, -0);
+
   border-top: 8px solid ${({ theme }) => theme.mainColor};
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
@@ -16,14 +15,11 @@ const IconButtomMoveTriangle = styled.span`
   opacity: 0;
 
   :nth-of-type(1) {
-    bottom: 75px;
     -webkit-animation-delay: 0s;
     animation-delay: 0s;
   }
 
   :nth-of-type(2) {
-    bottom: 55px;
-    margin-top: 2px;
     -webkit-animation-delay: 0.15s;
     animation-delay: 0.15s;
   }
@@ -47,14 +43,14 @@ const IconButtomMoveTriangle = styled.span`
 
   @keyframes triangle {
     0% {
-      transform: translate(0, 0);
+      transform: translate(-50%, 0);
       opacity: 0;
     }
     40% {
       opacity: 1;
     }
     80% {
-      transform: translate(0, 15px);
+      transform: translate(-50%, 10px);
       opacity: 0;
     }
     100% {
