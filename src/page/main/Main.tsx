@@ -1,16 +1,14 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react';
 import useMedia from '@/hook/mediaQuery/useMediaQuery';
-import IconButtomMoveTriangle from '@/styles/icon/iconButtomMoveTriangle ';
+import IconButtomMoveTriangle from '@/styles/icon/iconButtomMoveTriangle';
 import IconMouseScroll from '@/styles/icon/iconMouseScroll';
 import BgStyle from '@/styles/wrapper/bgStyle';
+import { mobileWidth } from '@/views/main/ScrollContents';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
-
 // @ts-ignore
 import Flip from 'react-reveal/Flip';
-import { mobileWidth } from '@/views/main/ScrollContents';
-import Arrow from '@/components/arrow/Arrow';
 
 const Main = (): React.ReactElement | null => {
   const { isMobile } = useMedia();
