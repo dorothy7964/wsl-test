@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const IconButtomMoveTriangle = styled.span`
   position: absolute;
-  bottom: 75px;
+  bottom: 0;
   left: calc(50% + 1px);
   transform: translate(-50%, 0);
   width: 0px;
@@ -16,12 +16,14 @@ const IconButtomMoveTriangle = styled.span`
   opacity: 0;
 
   :nth-of-type(1) {
+    bottom: 75px;
     -webkit-animation-delay: 0s;
     animation-delay: 0s;
   }
 
   :nth-of-type(2) {
-    bottom: 6.5%;
+    bottom: 55px;
+    margin-top: 2px;
     -webkit-animation-delay: 0.15s;
     animation-delay: 0.15s;
   }

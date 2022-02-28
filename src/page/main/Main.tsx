@@ -10,6 +10,7 @@ import React from 'react';
 // @ts-ignore
 import Flip from 'react-reveal/Flip';
 import { mobileWidth } from '@/views/main/ScrollContents';
+import Arrow from '@/components/arrow/Arrow';
 
 const Main = (): React.ReactElement | null => {
   const { isMobile } = useMedia();
@@ -22,13 +23,15 @@ const Main = (): React.ReactElement | null => {
         <Flip bottom>
           <MainWrapper isMobile={isMobile}>
             <img src="img/logo/main_logo.png" alt="main logo" />
-            <h1>THE ESPORTS YOU MAKING-1</h1>
+            <h1>THE ESPORTS YOU MAKING-2</h1>
           </MainWrapper>
         </Flip>
         <div css={mouseIconWrapper}>
           <IconMouseScroll />
-          <IconButtomMoveTriangle />
-          <IconButtomMoveTriangle />
+          <span>
+            <IconButtomMoveTriangle />
+            <IconButtomMoveTriangle />
+          </span>
         </div>
       </div>
     </Wrapper>
