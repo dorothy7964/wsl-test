@@ -8,7 +8,15 @@ import { useTranslation } from 'react-i18next';
 import Flag from 'react-world-flags';
 import Arrow from '@/components/arrow/Arrow';
 
-const MobileParticipationCountries = (): React.ReactElement | null => {
+type MobileParticipationCountriesProps = {
+  title: string;
+  subTitle: string;
+};
+
+const MobileParticipationCountries = ({
+  title,
+  subTitle,
+}: MobileParticipationCountriesProps): React.ReactElement | null => {
   const { t } = useTranslation();
 
   const [showContinent, setShowContinent] = useState<string>('asia');
@@ -22,8 +30,10 @@ const MobileParticipationCountries = (): React.ReactElement | null => {
 
   return (
     <CountryBox>
-      <h2>WSL 2022</h2>
-      <h2>PARTICIPATING COUNTRIES</h2>
+      <div css={titleBox}>
+        <h2>{title}</h2>
+        <h2>{subTitle}</h2>
+      </div>
       {_.map(participatingCountries, (value: IParticipatingCountries, name: string) => (
         <div key={name} onClick={() => toggleShowMenu(name)}>
           <MenuWrapper bgcolor={value.continentColor}>
@@ -66,6 +76,15 @@ const CountryBox = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  margin-top: 1em;
+`;
+
+const titleBox = css`
+  margin-bottom: 1em;
+  h2 {
+    font-size: 4rem;
+  }
 `;
 
 const MenuWrapper = styled.button<{ bgcolor: string }>`
