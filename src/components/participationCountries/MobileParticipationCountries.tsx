@@ -11,22 +11,29 @@ import Arrow from '@/components/arrow/Arrow';
 const MobileParticipationCountries = (): React.ReactElement | null => {
   const { t } = useTranslation();
 
-  const [isShowMenu, setShowMenu] = useState<string>('asia');
+  const [showContinent, setShowContinent] = useState<string>('asia');
+
+  const toggleShowMenu = (tabName: string) => {
+    if (String(tabName) === String(showContinent)) {
+      return setShowContinent('');
+    }
+    return setShowContinent(tabName);
+  };
 
   return (
     <CountryBox>
       {_.map(participatingCountries, (value: IParticipatingCountries, name: string) => (
-        <div key={name}>
+        <div key={name} onClick={() => toggleShowMenu(name)}>
           <MenuWrapper bgcolor={value.continentColor}>
             <TitleBox>
               <span>{value.continentTitle}</span>
               <span>{value.continentCountries.length}</span>
             </TitleBox>
-            <ArrowBox isShow={isShowMenu === name} onClick={() => setShowMenu(name)}>
-              <Arrow color="#fff" size="sm" direction={isShowMenu === name ? 'bottom' : 'top'} />
+            <ArrowBox isShow={showContinent === name}>
+              <Arrow color="#fff" size="sm" direction={showContinent === name ? 'top' : 'bottom'} />
             </ArrowBox>
           </MenuWrapper>
-          <ContinentBox bgcolor={value.continentColor} isShow={isShowMenu === name}>
+          <ContinentBox bgcolor={value.continentColor} isShow={showContinent === name}>
             {_.map(value.continentCountries, (country: any) => (
               <div key={country.iso} css={flegBox}>
                 {country.iso === 'tw' ? (
@@ -84,8 +91,8 @@ const ArrowBox = styled.div<{ isShow: boolean }>`
   display: flex;
   justify-content: center;
   position: relative;
-  cursor: ${({ isShow }) => (isShow ? 'none' : 'pointer')};
-  top: ${({ isShow }) => (isShow ? '-6px' : '2px')};
+  cursor: 'pointer';
+  top: ${({ isShow }) => (isShow ? '2px' : '-6px')};
 `;
 
 const ContinentBox = styled.div<{ bgcolor: string; isShow: boolean }>`
