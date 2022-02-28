@@ -23,7 +23,7 @@ const Main = (): React.ReactElement | null => {
         <Flip bottom>
           <MainWrapper isMobile={isMobile}>
             <img src="img/logo/main_logo.png" alt="main logo" />
-            <h1>THE ESPORTS YOU MAKIN6</h1>
+            <h1>THE ESPORTS YOU MAKING</h1>
           </MainWrapper>
         </Flip>
         <div css={mouseIconWrapper}>
@@ -65,7 +65,6 @@ const wrapper = css`
 
 const mouseIconWrapper = css`
   position: absolute;
-  background-color: orange;
 
   width: 100%;
   height: 150px;
