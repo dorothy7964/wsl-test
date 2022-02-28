@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const IconButtomMoveTriangle = styled.span`
   position: absolute;
   bottom: 0;
-  left: calc(50% + 1px);
+  left: 50%;
   transform: translate(-50%, 0);
   width: 0px;
   height: 0px;

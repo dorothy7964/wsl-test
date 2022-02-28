@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const IconMouseScroll = styled.span`
   position: absolute;
   bottom: 85px;
-  left: calc(50% + 4px);
+  left: 50%;
   transform: translate(-50%, 0);
   width: 30px;
   height: 50px;
