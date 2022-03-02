@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 type BgWordStyleProps = {
   top: string;
   left: string;
+  opacity?: string;
 };
 
 const BgWordStyle = styled.div<BgWordStyleProps>`
@@ -15,7 +16,7 @@ const BgWordStyle = styled.div<BgWordStyleProps>`
   background: url('img/bg/bg_world_text.png');
   background-repeat: no-repeat;
   background-position: bottom center;
-  opacity: 0.2;
+  opacity: ${({ opacity }) => opacity || 1}; ;
 `;
 
 export default BgWordStyle;

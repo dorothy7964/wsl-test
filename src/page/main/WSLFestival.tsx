@@ -1,9 +1,12 @@
 /** @jsx jsx */
 import useMedia from '@/hook/mediaQuery/useMediaQuery';
+import BgWordStyle from '@/styles/wrapper/bgWordStyle';
 import { mobileWidth } from '@/views/main/ScrollContents';
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
+// @ts-ignore
+import Fade from 'react-reveal/Fade';
 import { useTranslation } from 'react-i18next';
 
 const WSLFestival = (): React.ReactElement | null => {
@@ -12,12 +15,15 @@ const WSLFestival = (): React.ReactElement | null => {
 
   return (
     <Wrapper isMobile={isMobile} isPc={isPc} mobileWidth={mobileWidth}>
-      <h2>FESTIVAL FOR GLOBAL ESPORTS FANS</h2>
-      <ContentsBox>
-        <h3>{t('wsl_festival_01')}</h3>
-        <h3>{t('wsl_festival_02')}</h3>
-        <h3>{t('wsl_festival_03')}</h3>
-      </ContentsBox>
+      {!isMobile && <BgWordStyle top="6rem" left="-91rem" opacity="0.5" />}
+      <Fade top>
+        <h2>FESTIVAL FOR GLOBAL ESPORTS FANS</h2>
+        <ContentsBox>
+          <h3>{t('wsl_festival_01')}</h3>
+          <h3>{t('wsl_festival_02')}</h3>
+          <h3>{t('wsl_festival_03')}</h3>
+        </ContentsBox>
+      </Fade>
       <img
         width="100%"
         src={`img/contents/sub_festival_contents_${i18n.language}_pc.png`}
