@@ -3,7 +3,6 @@ import ArrowBtn from '@/components/btn/ArrowBtn';
 import useMedia from '@/hook/mediaQuery/useMediaQuery';
 import { ShineMotion } from '@/styles/animation/shine';
 import BgStyle from '@/styles/wrapper/bgStyle';
-import BgWordStyle from '@/styles/wrapper/bgWordStyle';
 import StrokeWrapper from '@/styles/wrapper/strokeWrapper';
 import { mobileWidth } from '@/views/main/ScrollContents';
 /** @jsx jsx */
@@ -11,6 +10,8 @@ import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+// @ts-ignore
+import Pulse from 'react-reveal/Pulse';
 
 const TournamentPrize = (): React.ReactElement | null => {
   const { isMobile } = useMedia();
@@ -31,15 +32,18 @@ const TournamentPrize = (): React.ReactElement | null => {
         <img src="img/logo/wsl_year_dark.png" alt="2022" width={149} height={68} />
       </ImgWslLogo>
       <h2 css={prizeTitle}>Prize Pool</h2>
-      <ShineMotion bgPosition="490px" color="#ffe888" shineColor="white">
-        <StrokeWrapper width="2px" color="#ffdd51">
-          <PrizeBox>
-            {!isKo && <ConntryUnit />}
-            <h1 css={prizeFont}>{numFormat(Number(lang[i18n.language]))}</h1>
-            {isKo && <ConntryUnit />}
-          </PrizeBox>
-        </StrokeWrapper>
-      </ShineMotion>
+
+      <Pulse>
+        <ShineMotion bgPosition="490px" color="#ffe888" shineColor="white">
+          <StrokeWrapper width="2px" color="#ffdd51">
+            <PrizeBox>
+              {!isKo && <ConntryUnit />}
+              <h1 css={prizeFont}>{numFormat(Number(lang[i18n.language]))}</h1>
+              {isKo && <ConntryUnit />}
+            </PrizeBox>
+          </StrokeWrapper>
+        </ShineMotion>
+      </Pulse>
       <ArrowBtn title="ENTRY" url="https://playpot.net/auth/signup" />
     </WidthBox>
   );

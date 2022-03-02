@@ -3,6 +3,8 @@ import useMedia from '@/hook/mediaQuery/useMediaQuery';
 import styled from '@emotion/styled';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+// @ts-ignore
+import Fade from 'react-reveal/Fade';
 
 const Playpot = (): React.ReactElement | null => {
   const { isMobile, isTablet, isPc } = useMedia();
@@ -10,24 +12,34 @@ const Playpot = (): React.ReactElement | null => {
 
   return (
     <div>
-      <h2>WSL with PLAYPOT</h2>
+      <Fade top>
+        <h2>WSL with PLAYPOT</h2>
+      </Fade>
       <SectionContainer isMobile={isMobile}>
-        <LeftSection className="leftSection" isMobile={isMobile} isTablet={isTablet} isPc={isPc}>
-          <img
-            width={isMobile ? '80%' : '90%'}
-            className="playpot_logo"
-            src="img/contents/playpot_img.png"
-            alt="playpot"
-          />
-        </LeftSection>
+        <Fade left>
+          <LeftSection className="leftSection" isMobile={isMobile} isTablet={isTablet} isPc={isPc}>
+            <img
+              width={isMobile ? '80%' : '90%'}
+              className="playpot_logo"
+              src="img/contents/playpot_img.png"
+              alt="playpot"
+            />
+          </LeftSection>
+        </Fade>
         <RightSection className="rightSction" isPc={isPc} isMobile={isMobile}>
-          <h2>PLAYPOT</h2>
-          <ContentsBox className="contentsBox" lang={i18n.language} isPc={isPc}>
-            <h3>{t('playpot_01')}</h3>
-            <h3>{t('playpot_02')}</h3>
-            <h3>{t('playpot_03')}</h3>
-          </ContentsBox>
-          <ArrowBtn title="Go To PlayPot" url="https://playpot.net/" />
+          <Fade right>
+            <h2>PLAYPOT</h2>
+          </Fade>
+          <Fade right>
+            <ContentsBox className="contentsBox" lang={i18n.language} isPc={isPc}>
+              <h3>{t('playpot_01')}</h3>
+              <h3>{t('playpot_02')}</h3>
+              <h3>{t('playpot_03')}</h3>
+            </ContentsBox>
+          </Fade>
+          <Fade right>
+            <ArrowBtn title="Go To PlayPot" url="https://playpot.net/" />
+          </Fade>
         </RightSection>
       </SectionContainer>
     </div>

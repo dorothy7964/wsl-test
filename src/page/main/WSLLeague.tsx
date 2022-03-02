@@ -15,14 +15,15 @@ const WSLLeague = (): React.ReactElement | null => {
   return (
     <Wrapper mobileWidth={mobileWidth}>
       {!isMobile && <BgWordStyle top="-65rem" left="44rem" opacity="0.2" />}
+
       <Fade top>
         <h2>World eSports League</h2>
         <ContentsBox>
           <h3>{t('wsl_league_01')}</h3>
           <h3>{t('wsl_league_02')}</h3>
         </ContentsBox>
+        <ImgWslLogoV />
       </Fade>
-      <ImgWslLogoV />
     </Wrapper>
   );
 };

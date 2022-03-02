@@ -7,6 +7,8 @@ import _ from 'lodash';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Flag from 'react-world-flags';
+// @ts-ignore
+import Fade from 'react-reveal/Fade';
 
 type MobileParticipationCountriesProps = {
   title: string;
@@ -30,39 +32,47 @@ const MobileParticipationCountries = ({
 
   return (
     <CountryBox>
-      <div css={titleBox}>
-        <h2>{title}</h2>
-        <h2>{subTitle}</h2>
-      </div>
-      {_.map(participatingCountries, (value: IParticipatingCountries, name: string) => (
-        <div key={name} onClick={() => toggleShowMenu(name)}>
-          <MenuWrapper bgcolor={value.continentColor}>
-            <TitleBox>
-              <span>{value.continentTitle}</span>
-              <span>{value.continentCountries.length}</span>
-            </TitleBox>
-            <ArrowBox isShow={showContinent === name}>
-              <Arrow color="#fff" size="sm" direction={showContinent === name ? 'top' : 'bottom'} />
-            </ArrowBox>
-          </MenuWrapper>
-          <ContinentBox bgcolor={value.continentColor} isShow={showContinent === name}>
-            {_.map(value.continentCountries, (country: any) => (
-              <div key={country.iso} css={flegBox}>
-                {country.iso === 'tw' ? (
-                  <img
-                    src="https://res.cloudinary.com/dsg49ksyn/image/upload/w_30,h_20,q_auto,c_fill,g_auto/wsl/country/tw.png"
-                    alt={country}
-                    width="30"
-                  />
-                ) : (
-                  <Flag code={country.iso} width="30" />
-                )}
-                <div css={flegName}>{t(country.lang)}</div>
-              </div>
-            ))}
-          </ContinentBox>
+      <Fade top>
+        <div css={titleBox}>
+          <h2>{title}</h2>
+          <h2>{subTitle}</h2>
         </div>
-      ))}
+      </Fade>
+      <Fade top>
+        {_.map(participatingCountries, (value: IParticipatingCountries, name: string) => (
+          <div key={name} onClick={() => toggleShowMenu(name)}>
+            <MenuWrapper bgcolor={value.continentColor}>
+              <TitleBox>
+                <span>{value.continentTitle}</span>
+                <span>{value.continentCountries.length}</span>
+              </TitleBox>
+              <ArrowBox isShow={showContinent === name}>
+                <Arrow
+                  color="#fff"
+                  size="sm"
+                  direction={showContinent === name ? 'top' : 'bottom'}
+                />
+              </ArrowBox>
+            </MenuWrapper>
+            <ContinentBox bgcolor={value.continentColor} isShow={showContinent === name}>
+              {_.map(value.continentCountries, (country: any) => (
+                <div key={country.iso} css={flegBox}>
+                  {country.iso === 'tw' ? (
+                    <img
+                      src="https://res.cloudinary.com/dsg49ksyn/image/upload/w_30,h_20,q_auto,c_fill,g_auto/wsl/country/tw.png"
+                      alt={country}
+                      width="30"
+                    />
+                  ) : (
+                    <Flag code={country.iso} width="30" />
+                  )}
+                  <div css={flegName}>{t(country.lang)}</div>
+                </div>
+              ))}
+            </ContinentBox>
+          </div>
+        ))}
+      </Fade>
     </CountryBox>
   );
 };

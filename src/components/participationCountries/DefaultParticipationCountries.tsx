@@ -7,6 +7,8 @@ import _ from 'lodash';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Flag from 'react-world-flags';
+// @ts-ignore
+import Fade from 'react-reveal/Fade';
 
 type DefaultParticipationCountriesProps = {
   title: string;
@@ -22,32 +24,38 @@ const DefaultParticipationCountries = ({
 
   return (
     <>
-      <div css={titleBox}>
-        <h2>{title}</h2>
-        <h2>{subTitle}</h2>
-      </div>
+      <Fade top>
+        <div css={titleBox}>
+          <h2>{title}</h2>
+          <h2>{subTitle}</h2>
+        </div>
+      </Fade>
       <CountryBox isPc={isPc}>
         {_.map(participatingCountries, (value: IParticipatingCountries, name: string) => (
           <WountryWrapper key={name} isPc={isPc}>
-            <ContinentTitle bgcolor={value.continentColor}>
-              <span>{value.continentTitle}</span>
-              <span>{value.continentCountries.length}</span>
-            </ContinentTitle>
+            <Fade top>
+              <ContinentTitle bgcolor={value.continentColor}>
+                <span>{value.continentTitle}</span>
+                <span>{value.continentCountries.length}</span>
+              </ContinentTitle>
+            </Fade>
             <ContinentBox bgcolor={value.continentColor}>
-              {_.map(value.continentCountries, (country: any) => (
-                <div key={country.iso} css={flegBox}>
-                  {country.iso === 'tw' ? (
-                    <img
-                      src="https://res.cloudinary.com/dsg49ksyn/image/upload/w_30,h_20,q_auto,c_fill,g_auto/wsl/country/tw.png"
-                      alt={country}
-                      width="30"
-                    />
-                  ) : (
-                    <Flag code={country.iso} width="30" />
-                  )}
-                  <div css={flegName}>{t(country.lang)}</div>
-                </div>
-              ))}
+              <Fade bottom>
+                {_.map(value.continentCountries, (country: any) => (
+                  <div key={country.iso} css={flegBox}>
+                    {country.iso === 'tw' ? (
+                      <img
+                        src="https://res.cloudinary.com/dsg49ksyn/image/upload/w_30,h_20,q_auto,c_fill,g_auto/wsl/country/tw.png"
+                        alt={country}
+                        width="30"
+                      />
+                    ) : (
+                      <Flag code={country.iso} width="30" />
+                    )}
+                    <div css={flegName}>{t(country.lang)}</div>
+                  </div>
+                ))}
+              </Fade>
             </ContinentBox>
           </WountryWrapper>
         ))}
